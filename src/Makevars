@@ -1,0 +1,10 @@
+# -*- mode: Makefile -*-
+#
+# Copyright 2008 - 2018  Dirk Eddelbuettel
+
+# See configure.in for how these variables are computed
+PKG_CXXFLAGS=-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1 -m64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection  -I/usr/include -fpermissive -I../inst/include -I. -DBOOST_NO_AUTO_PTR $(SHLIB_OPENMP_CXXFLAGS)
+PKG_LIBS= -L/usr/lib64 -lQuantLib $(SHLIB_OPENMP_CXXFLAGS)
+
+# Use C++11 for long long in Boost headers
+CXX_STD=CXX11

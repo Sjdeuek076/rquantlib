@@ -173,6 +173,10 @@ discountCurveEngine <- function(rparams, tslist, times, legParams) {
     .Call(`_RQuantLib_discountCurveEngine`, rparams, tslist, times, legParams)
 }
 
+HestonEuropeanOptionEngine <- function(type, underlying, strike, dividendYield, riskFreeRate, maturity, volatility, v0, kappa, theta, sigma, rho) {
+    .Call(`_RQuantLib_HestonEuropeanOptionEngine`, type, underlying, strike, dividendYield, riskFreeRate, maturity, volatility, v0, kappa, theta, sigma, rho)
+}
+
 calibrateHullWhiteUsingCapsEngine <- function(termStrcDateVec, termStrcZeroVec, capDF, iborDateVec, iborZeroVec, iborType, evalDate) {
     .Call(`_RQuantLib_calibrateHullWhiteUsingCapsEngine`, termStrcDateVec, termStrcZeroVec, capDF, iborDateVec, iborZeroVec, iborType, evalDate)
 }

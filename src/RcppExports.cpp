@@ -1212,6 +1212,51 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// HestonEuropeanOptionEngine
+Rcpp::List HestonEuropeanOptionEngine(std::string type, double underlying, double strike, double dividendYield, double riskFreeRate, double maturity, double volatility, double v0, double kappa, double theta, double sigma, double rho);
+static SEXP _RQuantLib_HestonEuropeanOptionEngine_try(SEXP typeSEXP, SEXP underlyingSEXP, SEXP strikeSEXP, SEXP dividendYieldSEXP, SEXP riskFreeRateSEXP, SEXP maturitySEXP, SEXP volatilitySEXP, SEXP v0SEXP, SEXP kappaSEXP, SEXP thetaSEXP, SEXP sigmaSEXP, SEXP rhoSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::traits::input_parameter< std::string >::type type(typeSEXP);
+    Rcpp::traits::input_parameter< double >::type underlying(underlyingSEXP);
+    Rcpp::traits::input_parameter< double >::type strike(strikeSEXP);
+    Rcpp::traits::input_parameter< double >::type dividendYield(dividendYieldSEXP);
+    Rcpp::traits::input_parameter< double >::type riskFreeRate(riskFreeRateSEXP);
+    Rcpp::traits::input_parameter< double >::type maturity(maturitySEXP);
+    Rcpp::traits::input_parameter< double >::type volatility(volatilitySEXP);
+    Rcpp::traits::input_parameter< double >::type v0(v0SEXP);
+    Rcpp::traits::input_parameter< double >::type kappa(kappaSEXP);
+    Rcpp::traits::input_parameter< double >::type theta(thetaSEXP);
+    Rcpp::traits::input_parameter< double >::type sigma(sigmaSEXP);
+    Rcpp::traits::input_parameter< double >::type rho(rhoSEXP);
+    rcpp_result_gen = Rcpp::wrap(HestonEuropeanOptionEngine(type, underlying, strike, dividendYield, riskFreeRate, maturity, volatility, v0, kappa, theta, sigma, rho));
+    return rcpp_result_gen;
+END_RCPP_RETURN_ERROR
+}
+RcppExport SEXP _RQuantLib_HestonEuropeanOptionEngine(SEXP typeSEXP, SEXP underlyingSEXP, SEXP strikeSEXP, SEXP dividendYieldSEXP, SEXP riskFreeRateSEXP, SEXP maturitySEXP, SEXP volatilitySEXP, SEXP v0SEXP, SEXP kappaSEXP, SEXP thetaSEXP, SEXP sigmaSEXP, SEXP rhoSEXP) {
+    SEXP rcpp_result_gen;
+    {
+        Rcpp::RNGScope rcpp_rngScope_gen;
+        rcpp_result_gen = PROTECT(_RQuantLib_HestonEuropeanOptionEngine_try(typeSEXP, underlyingSEXP, strikeSEXP, dividendYieldSEXP, riskFreeRateSEXP, maturitySEXP, volatilitySEXP, v0SEXP, kappaSEXP, thetaSEXP, sigmaSEXP, rhoSEXP));
+    }
+    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
+    if (rcpp_isInterrupt_gen) {
+        UNPROTECT(1);
+        Rf_onintr();
+    }
+    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
+    if (rcpp_isLongjump_gen) {
+        Rcpp::internal::resumeJump(rcpp_result_gen);
+    }
+    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
+    if (rcpp_isError_gen) {
+        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
+        UNPROTECT(1);
+        Rf_error(CHAR(rcpp_msgSEXP_gen));
+    }
+    UNPROTECT(1);
+    return rcpp_result_gen;
+}
 // calibrateHullWhiteUsingCapsEngine
 Rcpp::List calibrateHullWhiteUsingCapsEngine(std::vector<QuantLib::Date> termStrcDateVec, std::vector<double> termStrcZeroVec, Rcpp::DataFrame capDF, std::vector<QuantLib::Date> iborDateVec, std::vector<double> iborZeroVec, std::string iborType, QuantLib::Date evalDate);
 RcppExport SEXP _RQuantLib_calibrateHullWhiteUsingCapsEngine(SEXP termStrcDateVecSEXP, SEXP termStrcZeroVecSEXP, SEXP capDFSEXP, SEXP iborDateVecSEXP, SEXP iborZeroVecSEXP, SEXP iborTypeSEXP, SEXP evalDateSEXP) {
@@ -1628,6 +1673,7 @@ static int _RQuantLib_RcppExport_validate(const char* sig) {
         signatures.insert("std::vector<double>(*dayCount)(std::vector<QuantLib::Date>,std::vector<QuantLib::Date>,std::vector<double>)");
         signatures.insert("std::vector<double>(*yearFraction)(std::vector<QuantLib::Date>,std::vector<QuantLib::Date>,std::vector<double>)");
         signatures.insert("bool(*setEvaluationDate)(QuantLib::Date)");
+        signatures.insert("Rcpp::List(*HestonEuropeanOptionEngine)(std::string,double,double,double,double,double,double,double,double,double,double,double)");
         signatures.insert("double(*europeanOptionImpliedVolatilityEngine)(std::string,double,double,double,double,double,double,double)");
         signatures.insert("double(*americanOptionImpliedVolatilityEngine)(std::string,double,double,double,double,double,double,double,int,int)");
         signatures.insert("Rcpp::DateVector(*CreateSchedule)(Rcpp::List)");
@@ -1664,6 +1710,7 @@ RcppExport SEXP _RQuantLib_RcppExport_registerCCallable() {
     R_RegisterCCallable("RQuantLib", "_RQuantLib_dayCount", (DL_FUNC)_RQuantLib_dayCount_try);
     R_RegisterCCallable("RQuantLib", "_RQuantLib_yearFraction", (DL_FUNC)_RQuantLib_yearFraction_try);
     R_RegisterCCallable("RQuantLib", "_RQuantLib_setEvaluationDate", (DL_FUNC)_RQuantLib_setEvaluationDate_try);
+    R_RegisterCCallable("RQuantLib", "_RQuantLib_HestonEuropeanOptionEngine", (DL_FUNC)_RQuantLib_HestonEuropeanOptionEngine_try);
     R_RegisterCCallable("RQuantLib", "_RQuantLib_europeanOptionImpliedVolatilityEngine", (DL_FUNC)_RQuantLib_europeanOptionImpliedVolatilityEngine_try);
     R_RegisterCCallable("RQuantLib", "_RQuantLib_americanOptionImpliedVolatilityEngine", (DL_FUNC)_RQuantLib_americanOptionImpliedVolatilityEngine_try);
     R_RegisterCCallable("RQuantLib", "_RQuantLib_CreateSchedule", (DL_FUNC)_RQuantLib_CreateSchedule_try);
@@ -1723,6 +1770,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RQuantLib_yearFraction", (DL_FUNC) &_RQuantLib_yearFraction, 3},
     {"_RQuantLib_setEvaluationDate", (DL_FUNC) &_RQuantLib_setEvaluationDate, 1},
     {"_RQuantLib_discountCurveEngine", (DL_FUNC) &_RQuantLib_discountCurveEngine, 4},
+    {"_RQuantLib_HestonEuropeanOptionEngine", (DL_FUNC) &_RQuantLib_HestonEuropeanOptionEngine, 12},
     {"_RQuantLib_calibrateHullWhiteUsingCapsEngine", (DL_FUNC) &_RQuantLib_calibrateHullWhiteUsingCapsEngine, 7},
     {"_RQuantLib_calibrateHullWhiteUsingSwapsEngine", (DL_FUNC) &_RQuantLib_calibrateHullWhiteUsingSwapsEngine, 7},
     {"_RQuantLib_europeanOptionImpliedVolatilityEngine", (DL_FUNC) &_RQuantLib_europeanOptionImpliedVolatilityEngine, 8},

@@ -74,7 +74,9 @@ export(
     "Schedule",
     ##--utils.R
     "getQuantLibVersion",
-    "getQuantLibCapabilities"
+    "getQuantLibCapabilities",
+    ##--hestonopt.R
+    "HestonEuropeanOption"
 )
 
 S3method("AmericanOption", "default")
@@ -92,6 +94,9 @@ S3method("ConvertibleFixedCouponBond", "default")
 S3method("ConvertibleFloatingCouponBond", "default")
 S3method("ConvertibleZeroCouponBond", "default")
 S3method("DiscountCurve", "default")
+
+S3method("HestonEuropeanOption", "default")
+
 S3method("EuropeanOption", "default")
 S3method("EuropeanOptionImpliedVolatility", "default")
 S3method("FittedBondCurve", "default")
